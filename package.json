@@ -1,7 +1,7 @@
 {
-  "name": "nodejs-complete-guide",
+  "name": "simple-shop",
   "version": "1.0.0",
-  "description": "Complete Node.js Guide",
+  "description": "",
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
