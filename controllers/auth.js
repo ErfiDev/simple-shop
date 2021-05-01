@@ -4,3 +4,10 @@ exports.getLogin = (req, res, next) => {
     pageTitle: 'Login'
   });
 };
+
+exports.signup = (req, res, next) => {
+  res.render('auth/signup', {
+    path: '/signup',
+    pageTitle: 'SignUp'
+  });
+};

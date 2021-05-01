@@ -10,6 +10,7 @@
   "author": "Erfan hanifezade",
   "license": "ISC",
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "nodemon": "^1.18.3"
   },
   "dependencies": {

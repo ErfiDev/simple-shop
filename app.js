@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
@@ -14,12 +15,13 @@ const errorController = require('./controllers/error');
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const authRoutes = require('./routes/auth');
+const UserApi = require('./routes/user');
 
 app.use(express.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 mongoose.connect(
-  'mongodb://localhost:27017/maxi',
+  process.env.DB,
   { 
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -33,7 +35,6 @@ app.use((req, res, next) => {
   User.find({_id: '5bab316ce0a7c75f783cb8a8'})
     .then(user => {
       req.user = user;
-      console.log(user);
       next();
     })
     .catch(err => console.log(err));
@@ -43,6 +44,7 @@ app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 app.use(authRoutes);
 app.use(errorController.get404);
+app.use('/user' , UserApi);
 
 app.listen(PORT , ()=> {
   console.log(`server started on port : ${PORT}`);

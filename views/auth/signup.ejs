@@ -2,12 +2,11 @@
     <link rel="stylesheet" href="/css/forms.css">
     <link rel="stylesheet" href="/css/auth.css">
 </head>
-
 <body>
-   <%- include('../includes/navigation.ejs') %>
+<%- include('../includes/navigation.ejs') %>
 
     <main>
-        <form class="login-form" action="user/login" method="POST">
+        <form class="login-form" action="user/signup" method="POST">
             <div class="form-control">
                 <label for="email">E-Mail</label>
                 <input type="email" name="email" id="email">
@@ -16,7 +15,12 @@
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password">
             </div>
-            <button class="btn" type="submit">Login</button>
+            <div class="form-control">
+                <label for="password2">Password again</label>
+                <input type="password" name="password2" id="password2">
+            </div>
+            <button class="btn" type="submit">signup</button>
         </form>
     </main>
+
 <%- include('../includes/end.ejs') %>
