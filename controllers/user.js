@@ -1,4 +1,5 @@
 const model = require('../models/user');
+const validate = require('../validations/user');
 
 function login(req , res) {
     res.render('shop/index', {
@@ -8,8 +9,11 @@ function login(req , res) {
     });
 };
 
-function signup(req , res) {
 
+async function signup(req , res) {
+    let errors = [];
+    let validation = await validate(req.body);
+    res.json(validation);
 };
 
 module.exports = {

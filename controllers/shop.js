@@ -44,18 +44,18 @@ exports.getIndex = (req, res, next) => {
 };
 
 exports.getCart = (req, res, next) => {
-  // req.user
-  //   .populate('cart.items.productId')
-  //   .execPopulate()
-  //   .then(user => {
-      // const products = user.cart.items;
+  req.user
+    .populate('cart.items.productId')
+    .execPopulate()
+    .then(user => {
+      const products = user.cart.items;
       res.render('shop/cart', {
         path: '/cart',
         pageTitle: 'Your Cart',
         products: []
       });
-    // })
-    // .catch(err => console.log(err));
+    });
+    .catch(err => console.log(err));
 };
 
 exports.postCart = (req, res, next) => {
@@ -107,13 +107,9 @@ exports.postOrder = (req, res, next) => {
 };
 
 exports.getOrders = (req, res, next) => {
-  Order.find({ 'user.userId': req.user._id })
-    .then(orders => {
-      res.render('shop/orders', {
-        path: '/orders',
-        pageTitle: 'Your Orders',
-        orders: []
-      });
-    })
-    .catch(err => console.log(err));
+  res.render('shop/orders' , {
+    path: '/orders',
+    pageTitle: 'orders',
+    orders: []
+  });
 };

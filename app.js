@@ -2,8 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
-
-const User = require('./models/user');
+const UserModel = require('./models/user');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -19,6 +18,7 @@ const UserApi = require('./routes/user');
 
 app.use(express.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
 
 mongoose.connect(
   process.env.DB,
@@ -31,20 +31,20 @@ mongoose.connect(
   }
 );
 
-app.use((req, res, next) => {
-  User.find({_id: '5bab316ce0a7c75f783cb8a8'})
-    .then(user => {
-      req.user = user;
-      next();
-    })
-    .catch(err => console.log(err));
+app.use(async (req, res, next) => {
+  try{
+    let find = await UserModel.find({_id: "608db94c3c88c918285e1073"});
+    req.user = find;
+    next();
+  }
+  catch(err){console.log(err)}
 });
 
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 app.use(authRoutes);
 app.use(errorController.get404);
-app.use('/user' , UserApi);
+app.use('/user/api' , UserApi);
 
 app.listen(PORT , ()=> {
   console.log(`server started on port : ${PORT}`);
