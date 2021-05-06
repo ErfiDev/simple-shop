@@ -1,4 +1,5 @@
 exports.getLogin = (req, res, next) => {
+  console.log(req.get('Cookie').split(';'));
   res.render('auth/login', {
     path: '/login',
     pageTitle: 'Login'

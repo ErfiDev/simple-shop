@@ -15,6 +15,7 @@
     "nodemon": "^1.18.3"
   },
   "dependencies": {
+    "cookie-parser": "^1.4.5",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",

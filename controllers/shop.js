@@ -54,7 +54,7 @@ exports.getCart = (req, res, next) => {
         pageTitle: 'Your Cart',
         products: []
       });
-    });
+    })
     .catch(err => console.log(err));
 };
 

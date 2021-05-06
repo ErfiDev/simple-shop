@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const path = require('path');
 const mongoose = require('mongoose');
 const UserModel = require('./models/user');
@@ -19,6 +20,7 @@ const UserApi = require('./routes/user');
 app.use(express.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
+app.use(cookieParser());
 
 mongoose.connect(
   process.env.DB,
@@ -33,8 +35,8 @@ mongoose.connect(
 
 app.use(async (req, res, next) => {
   try{
-    let find = await UserModel.find({_id: "608db94c3c88c918285e1073"});
-    req.user = find;
+    const {loggedIn , id} = req.cookies;
+    if(loggedIn) return req.userId = id;
     next();
   }
   catch(err){console.log(err)}
