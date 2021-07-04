@@ -1,0 +1,22 @@
+{
+  "name": "shop-express",
+  "version": "1.0.0",
+  "description": "shop project create by ejs and express core",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ErfiDev/simple-shop.git"
+  },
+  "keywords": [
+    "expressjs"
+  ],
+  "author": "erfanhanifezade@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ErfiDev/simple-shop/issues"
+  },
+  "homepage": "https://github.com/ErfiDev/simple-shop#readme"
+}
