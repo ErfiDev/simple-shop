@@ -4,14 +4,18 @@
   "description": "shop project create by ejs and express core",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ErfiDev/simple-shop.git"
   },
   "keywords": [
-    "expressjs"
+    "expressjs",
+    "ejs",
+    "mvc",
+    "mongodb"
   ],
   "author": "erfanhanifezade@gmail.com",
   "license": "ISC",
