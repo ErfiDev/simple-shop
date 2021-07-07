@@ -12,15 +12,17 @@ App.use(express.urlencoded({ extended: true }));
 App.use(cookieParser());
 
 App.use("/", (req, res, next) => {
-  const cookies = req.cookies;
-  next();
-});
-
-App.get("/", (req, res) => {
-  console.log(req.cookies);
-  res.render("index", {
-    userStatus: true,
-  });
+  const { user } = req.cookies;
+  let condition = !user || Object.keys(user).length <= 0;
+  if (condition) {
+    next();
+    return res.render("index", {
+      userStatus: false,
+    });
+  } else {
+    res.render("index", { userStatus: true });
+    next();
+  }
 });
 
 App.listen(PORT, () => console.log(`running on the ${PORT}`));
