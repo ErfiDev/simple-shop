@@ -13,16 +13,15 @@ App.use(cookieParser());
 
 App.use("/", (req, res, next) => {
   const { user } = req.cookies;
-  let condition = !user || Object.keys(user).length <= 0;
-  if (condition) {
-    next();
-    return res.render("index", {
-      userStatus: false,
-    });
-  } else {
-    res.render("index", { userStatus: true });
+  if (!user) {
+    res.cookie("user", "");
     next();
   }
+  next();
+});
+
+App.get("/", (req, res) => {
+  res.render("index", { userStatus: false });
 });
 
 App.listen(PORT, () => console.log(`running on the ${PORT}`));
