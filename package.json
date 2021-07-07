@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/ErfiDev/simple-shop#readme",
   "devDependencies": {
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
     "multer": "^1.4.2",
     "nodemon": "^2.0.9"
