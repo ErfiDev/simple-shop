@@ -11,9 +11,10 @@
     width: 100vw;
     min-height: 10vh;
     height: auto;
-    #{$bc}: blue; 
+    #{$bc}: $bluee;
     @include Grid(1fr , 1fr);
     font-family: "Poppins" , sans-serif;
+    color: $white;
 
     &-list{
         @include Flex(space-around , center);

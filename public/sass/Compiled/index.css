@@ -8,11 +8,12 @@
   width: 100vw;
   min-height: 10vh;
   height: auto;
-  background-color: blue;
+  background-color: #1d3557;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   font-family: "Poppins", sans-serif;
+  color: #f1faee;
 }
 .header-list {
   display: flex;
